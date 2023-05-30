@@ -1,14 +1,21 @@
 import psutil
 import subprocess
 
-def getMemoryData():
+def getMemoryData(index):
     memory_data = psutil.virtual_memory()
     memory_total = memory_data.total
     memory_available = memory_data.available
     memory_percent = memory_data.percent
     memory_freq = get_memory_frequency()
 
-    return memory_available, memory_percent, memory_total, memory_freq
+    if index == 1:
+        return "{:.2f}".format(memory_available / (1024 ** 3))
+    if index == 2:
+        return "{:.2f}".format(memory_percent)
+    if index == 3: 
+        return "{:.2f}".format(memory_total / (1024 ** 3))
+    if index == 4:
+        return memory_freq
 
 def get_memory_frequency():
     output = subprocess.check_output("sudo dmidecode --type 17", shell=True)
