@@ -1,5 +1,4 @@
-import cpu
-import memory
+from getData import cpu, memory
 
 cpu.getCpuData()
 memory.getMemoryData()
