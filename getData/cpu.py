@@ -1,10 +1,11 @@
 import psutil
 
 def getCpuData():
-    cpu_usage = psutil.cpu_percent(interval=1)
-    cpu_freq = psutil.cpu_freq().current
-    print (f"{cpu_usage} \n {cpu_freq}")
-    return cpu_usage, cpu_freq
+    cpu_percent = psutil.cpu_percent()
+    cpu_freq = psutil.cpu_freq()
+    cpu_number = psutil.cpu_count()
+
+    return cpu_percent, cpu_freq, cpu_number
 
 
 getCpuData()
