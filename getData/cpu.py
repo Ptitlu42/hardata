@@ -7,5 +7,3 @@ def getCpuData():
 
     return cpu_percent, cpu_freq, cpu_number
 
-
-getCpuData()
